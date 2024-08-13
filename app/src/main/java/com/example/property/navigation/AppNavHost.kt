@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.property.ui.theme.details.DetailsScreen
 import com.example.property.ui.theme.screens.intent.IntentScreen
+import com.example.property.ui.theme.screens.login.LoginScreen
 import com.example.property.ui.theme.screens.property.PropertyScreen
 import com.example.property.ui.theme.screens.signup.SignupScreen
 import com.example.property.ui.theme.screens.splash.SplashScreen
@@ -55,6 +56,10 @@ fun AppNavHost(
 
         composable(ROUT_SIGNUP) {
             SignupScreen(navController = navController)
+        }
+
+        composable(ROUT_LOGIN) {
+            LoginScreen(navController = navController)
         }
     }
 
