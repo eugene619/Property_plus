@@ -30,8 +30,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.property.R
+import com.example.property.navigation.ROUT_ADDPRODUCTS
 import com.example.property.navigation.ROUT_HOME
 import com.example.property.navigation.ROUT_PROPERTY
+import com.example.property.navigation.ROUT_VIEWPRODUCT
 import com.example.property.ui.theme.DBcardbg
 
 @Composable
@@ -42,21 +44,21 @@ fun DashboardScreen(navController: NavController){
     {
         Text(
             text = "Property+",
-            fontSize = 60.sp,
+            fontSize = 50.sp,
             fontFamily = FontFamily.Cursive,
             color = Color.Magenta
         )
 
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         Image(
             painter = painterResource(id = com.example.property.R.drawable.signupicon),
             contentDescription = "signupicon",
-            modifier = Modifier.size(200.dp),
+            modifier = Modifier.size(150.dp),
             contentScale = ContentScale.Crop
         )
 
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(10.dp))
 
         Text(
             text = "Manage your property with ease",
@@ -65,14 +67,15 @@ fun DashboardScreen(navController: NavController){
             color = Color.Magenta
         )
 
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(15.dp))
 
         Column {
             //Start of Main Card
             Card (
                 modifier = Modifier
-                    .fillMaxSize()
-                    .height(700.dp),
+                    .fillMaxWidth()
+                    .height(450.dp)
+                    .padding(10.dp),
                 shape = RoundedCornerShape(60.dp),
                 colors = CardDefaults.cardColors(DBcardbg),
                 elevation = CardDefaults.cardElevation(10.dp)
@@ -101,6 +104,7 @@ fun DashboardScreen(navController: NavController){
 
                             Text(
                                 text = "Home",
+                                modifier = Modifier.padding(start = 40.dp),
                                 fontSize = 25.sp,
                                 fontFamily = FontFamily.SansSerif,
                                 textAlign = TextAlign.Center
@@ -130,6 +134,7 @@ fun DashboardScreen(navController: NavController){
 
                             Text(
                                 text = "Property",
+                                modifier = Modifier.padding(start = 40.dp),
                                 fontSize = 25.sp,
                                 fontFamily = FontFamily.SansSerif,
                                 textAlign = TextAlign.Center
@@ -141,7 +146,10 @@ fun DashboardScreen(navController: NavController){
                 //End of Row1
 
                 //Row2
-                Row (modifier = Modifier.padding(20.dp)){
+                Row (
+                    modifier = Modifier
+                        .padding(start = 20.dp, end = 20.dp)
+                        .clickable { navController.navigate(ROUT_ADDPRODUCTS) }){
                     //Card1
                     Card (modifier = Modifier.width(160.dp)){
                         Column {
@@ -158,7 +166,8 @@ fun DashboardScreen(navController: NavController){
                             Spacer(modifier = Modifier.height(20.dp))
 
                             Text(
-                                text = "Home",
+                                text = "Add Product",
+                                modifier = Modifier.padding(start = 15.dp),
                                 fontSize = 25.sp,
                                 fontFamily = FontFamily.SansSerif,
                                 textAlign = TextAlign.Center
@@ -170,7 +179,10 @@ fun DashboardScreen(navController: NavController){
                     Spacer(modifier = Modifier.width(20.dp))
 
                     //Card2
-                    Card (modifier = Modifier.width(160.dp)){
+                    Card (
+                        modifier = Modifier
+                            .width(160.dp)
+                            .clickable { navController.navigate(ROUT_VIEWPRODUCT) }){
                         Column {
                             Spacer(modifier = Modifier.height(20.dp))
 
@@ -185,7 +197,8 @@ fun DashboardScreen(navController: NavController){
                             Spacer(modifier = Modifier.height(20.dp))
 
                             Text(
-                                text = "Home",
+                                text = "View Product",
+                                modifier = Modifier.padding(start = 5.dp),
                                 fontSize = 25.sp,
                                 fontFamily = FontFamily.SansSerif,
                                 textAlign = TextAlign.Center
