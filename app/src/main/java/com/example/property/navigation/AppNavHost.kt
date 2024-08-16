@@ -7,8 +7,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.property.ui.theme.details.DetailsScreen
+import com.example.property.ui.theme.screens.dashboard.DashboardScreen
 import com.example.property.ui.theme.screens.intent.IntentScreen
 import com.example.property.ui.theme.screens.login.LoginScreen
+import com.example.property.ui.theme.screens.products.AddProductsScreen
+import com.example.property.ui.theme.screens.products.ViewProductScreen
 import com.example.property.ui.theme.screens.property.PropertyScreen
 import com.example.property.ui.theme.screens.signup.SignupScreen
 import com.example.property.ui.theme.screens.splash.SplashScreen
@@ -60,6 +63,18 @@ fun AppNavHost(
 
         composable(ROUT_LOGIN) {
             LoginScreen(navController = navController)
+        }
+
+        composable(ROUT_DASHBOARD) {
+            DashboardScreen(navController = navController)
+        }
+
+        composable(ROUT_ADDPRODUCTS) {
+            AddProductsScreen(navController = navController)
+        }
+
+        composable(ROUT_VIEWPRODUCT) {
+            ViewProductScreen(navController = navController)
         }
     }
 
